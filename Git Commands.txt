@@ -10,8 +10,12 @@ git config --global http.sslVerify false
 // Add remote repo URL
 git remote add origin https://github.com/learninjavagithub/samples.git
 
-// Add all files in the directory
+// Staging/Adding all files in the directory
 git add .
+
+or 
+// Staging/adding single file
+git add "Git Commands.txt"
 
 // Commit
 git commit -m "initial commit"
