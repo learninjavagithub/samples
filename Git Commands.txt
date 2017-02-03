@@ -1,0 +1,20 @@
+// Create a local repo
+git init
+
+// Config proxy
+git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+
+// Disable SSL
+git config --global http.sslVerify false
+
+// Add remote repo URL
+git remote add origin https://github.com/learninjavagithub/samples.git
+
+// Add all files in the directory
+git add .
+
+// Commit
+git commit -m "initial commit"
+
+// Push
+git push -u origin master
