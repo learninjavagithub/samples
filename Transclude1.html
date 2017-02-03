@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html data-ng-app="transcludeExample">
+<body>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+// contents of the directive element/attribute/class will be includede in the template's ng-transclude position
+  angular.module('transcludeExample', [])
+   .directive('pane', function(){
+      return {
+        restrict: 'AECM',
+        transclude: true,
+        scope: { title:'@' },
+        template: '<div style="border: 1px solid black;">' +
+                    '<div style="background-color: grey">{{title}}</div>' +
+                    '<ng-transclude></ng-transclude>' +
+                  '</div>'
+      };
+  })
+  .controller('ExampleController', ['$scope', function($scope) {
+    $scope.title = 'Lorem Ipsum';
+    $scope.text = 'Neque porro quisquam est qui dolorem ipsum quia dolor...';
+  }]);
+</script>
+<div ng-controller="ExampleController">
+  <br/>
+  <pane title="{{title}}">
+	  <textarea ng-model="text" aria-label="text"></textarea> <br/>
+  </pane>
+  <br/>
+  <div pane title="{{title}}">
+	  <textarea ng-model="text" aria-label="text"></textarea> <br/>
+  </div>
+  <br/>
+  <div class="pane" title="{{title}}">
+	  <textarea ng-model="text" aria-label="text"></textarea> <br/>
+  </div>
+  
+  <!-- directive: pane -->
+  
+</div>
+</body>
+</html>

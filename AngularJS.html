@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<body>
+
+<!--
+Points to remember: 
+For Routing to work these are mandatory:
+1. Correct route.js file
+2. ng-view placeholder
+3. ngRoute module dependency on app
+4. Always run inside a webserver. Standalone app does not work
+-->
+
+<div class="container" data-ng-controller="SimpleController">
+
+First Name: <input type="text" data-ng-model="firstName"><br>
+Last Name: <input type="text" data-ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+
+
+<ul>
+	<li data-ng-repeat="name in names | orderBy: name  ">
+		{{ name }}
+	</li>
+</ul>
+
+
+
+<select name="test">
+   <option ng-repeat="item in listItems" value={{item.value}}>{{item.name}}</option>
+</select>
+
+
+<a href="#/View1">View1</a>
+<br />
+<a href="#/Main">Main</a>
+
+
+<div ng-view></div>
+
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script type="text/javascript">
+ var app = angular.module('myApp', ['ngRoute']);
+  
+ app.config(['$routeProvider',
+ 
+	 function($routeProvider) {
+		
+		$routeProvider
+			.when('/View1', { 
+				controller: 'SimpleController',
+				templateUrl: 'View1.html'
+			})
+			.when('/View2', {
+				controller: 'SimpleController',
+				templateUrl: 'View1.html'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+ }]);
+ 
+ app.controller('SimpleController', function($scope) {
+     
+	 $scope.firstName= "John";
+     $scope.lastName= "Doe";
+	 $scope.names = ['one', 'three', 'four', 'two', 'five', 'six'];
+	 
+	 $scope.message = 'This is New View screen';
+
+	 $scope.addUser = function() {
+		$scope.names.push($scope.newUser.name);
+	 };
+	 $scope.listItems = [
+		{name: 'Apple', value:'1'},
+		{name: 'Orange', value:'2'},
+		{name: 'Banana', value:'3'}
+	 ];
+ });
+
+
+ 
+</script> 
+
+</body>
+</html>
