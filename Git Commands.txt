@@ -25,3 +25,6 @@ git push -u origin master
 
 // Pull
 git pull https://github.com/learninjavagithub/samples.git master
+
+// Check if any files modified
+git status

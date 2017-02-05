@@ -1,0 +1,7 @@
+npm install -g local-web-server
+
+npm install local-web-server --save-dev
+
+npm install
+
+npm start
