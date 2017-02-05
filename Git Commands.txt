@@ -28,3 +28,6 @@ git pull https://github.com/learninjavagithub/samples.git master
 
 // Check if any files modified
 git status
+
+// Remove a directory
+git rm -r "Removed dir"
