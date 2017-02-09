@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myCtrl as VM">
+		<a my-dir></a>
+
+		Parent Scope: <input type="text" ng-model="firstName"><br>
+		{{firstName}}
+	</div>
+	<p>
+	
+    <script>
+    angular.module("myApp", [])
+		.controller("myCtrl", function($scope){
+
+		  $scope.firstName = "Foo";
+		})
+		.directive("myDir", [function(){
+		  var directive = {
+			
+			scope : false, // Default Value
+			link: function(scope){
+			  
+			  scope.firstName = "Bar";
+			  console.log(scope.firstName);
+			  
+			  /*
+				//Inherited Scope
+				scope : "true"
+
+				Angular JS will create a new scope by inheriting parent scope ( usually controller scope, else application’s root Scope ). 
+
+				Note : Any changes made to this new scope will NOT reflect back to the parent scope. However, since the new scope is inherited from the parent scope, any changes made in the parent scope i.e. controller will be reflected in the directive scope.
+
+				//Shared Scope
+				scope : "false"
+
+				The controller and directive are using the same scope object. This means any changes to the controller or directive will be in sync.
+
+				//Isolated Scope
+				scope : "{}"
+
+				New scope created for the directive, but it will not be inherited from the parent scope. This new scope also known as Isolated scope because it is completely detached from its parent scope.
+			 */
+
+			}
+		  }
+		  return directive;
+		}]);
+    </script>
+  </body>
+</html>

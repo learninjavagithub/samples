@@ -10,19 +10,27 @@
         attr1="VM.sayHi('Juan')"
         attr2="VM.sayHi('Juan')"
         attr3="VM.sayHi('Juan')"></a>
-    </div>
+
+		[See IE Console]
+	</div>
+	<p>
+	
     <script>
     angular.module("myApp", [])
-		.controller("myCtrl", [function(){
+		.controller("myCtrl", function($scope){
+
+		  $scope.firstName = "Foo";
 		  var vm = this;
 		  vm.sayHi = function(name){
 			return ("Hey there, " + name);
 		  }
-		}])
+		})
 		.directive("myDir", [function(){
 		  var directive = {
-			scope: { attr1: "<", attr2: "@", attr3: "&" },
+
+		    scope: { attr1: "=", attr2: "@", attr3: "&" },
 			link: function(scope){
+			  
 			  console.log(scope.attr1);   // logs "Hey there, Juan"
 			  console.log(scope.attr2);   // logs "VM.sayHi('Juan')"
 			  console.log(scope.attr3);   // logs "function (a){return h(c,a)}"
@@ -31,19 +39,19 @@
 			  /* 
 			  Before Angular 1.5
 			  
-			  @ get as string
-			  = 2 way binding
-			  & - • if a function was passed: then the function is executed in the parent (controller) closure when called
-			  & - • if a non-function was passed in: simply get a local copy of the object that has no bindings
+			  @ - get as string
+			  = - 2 way binding
+			  & - if a function was passed: then the function is executed in the parent (controller) closure when called
+			  & - if a non-function was passed in: simply get a local copy of the object that has no bindings
 			  */
 			  
 			  /*
 			  In our Component definition for Angular version 1.5
 				 there are four different type of bindings:
-				1.= Two-way data binding :- this means if you updated your component scope the change will be reflected to your parent scope.
-				2.< one way binding :- when we just want to read a parameter from a parent scope and not update it.
-				3.@ this is for String Parameters
-				4.& this is for Callbacks in case your component needs to output something to its parent scope
+				1.= - Two-way data binding :- this means if you updated your component scope the change will be reflected to your parent scope.
+				2.< - one way binding :- when we just want to read a parameter from a parent scope and not update it.
+				3.@ - this is for String Parameters
+				4.& - this is for Callbacks in case your component needs to output something to its parent scope
 			  */
 
 			}
