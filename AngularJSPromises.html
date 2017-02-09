@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp">
+<body>
+
+<div class="container" data-ng-controller="PromiseController">
+	Result of Promise : {{promiseResult}}
+	
+	<p>
+	Result of Combined Promise : {{combinedPromiseResult}}
+	
+	<p>
+	<h3>Deferred Timer Test</h3> 
+	<input type="checkbox" ng-model="success" ng-checked="success"> Toggle Success/Failure 
+	<button ng-click="startDeferredTimer(success)">Start Test</button> 
+	<p>1 sec Timer Result: {{deferredTimerResult}}</p> 
+	
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+ var app = angular.module('myApp', []);
+  
+	app.controller('PromiseController', function($scope, $http, $q, $timeout) {
+
+		// Method 1
+		/*
+		var promise = $http.get("/angular/data/first.json");  
+		promise.success(function(payload) {  
+			//console.log("Your name is: " + name);
+			$scope.promiseResult = payload;
+		});
+		promise.error(function(response, status) {  
+			//console.log("The request failed with response " + response + " and status code " + status);
+			$scope.promiseResult = response;
+		});
+		*/
+		
+		// Method 2
+		var promise = $http.get("/angular/data/first.json");  
+		promise.then(
+			function(payload) { 
+				// Here payload returns data, status, headers, config so use payload.data for the exact content
+				$scope.promiseResult = payload;
+			},
+			function(errorPayload) { 
+				$scope.promiseResult = errorPayload;
+			},
+			function(progressPayload) { 
+				$scope.promiseResult = progressPayload;
+			}
+		);
+		
+		// Method 3
+		/*
+		$http.get('/angular/data/first.json')
+		  .success(function(data, status, headers, config) {
+			 $scope.promiseResult = data;
+		  })
+		  .error(function(response, status) {
+			$scope.promiseResult = response;
+		  });
+		*/  
+		
+		
+		// Combining multiple promises
+		var first = $http.get("/angular/data/first.json");
+		var second = $http.get("/angular/data/second.json");
+
+		$q.all([first, second])
+		.then(function(result){
+			var tmp = [];
+			
+			angular.forEach(result, function(response) {
+				tmp.push(response.data);
+			})
+			return tmp;
+		})
+		.then(function(result){
+			$scope.combinedPromiseResult = result.join(", ")
+		});
+
+		// To create custom deferred object, use $q.defer()
+		$scope.startDeferredTimer = function(success) {
+			deferredTimer(success).then(
+			function(data) {
+			  $scope.deferredTimerResult = "Successfully finished: " + data.message;
+			},
+			function(data) {
+			  $scope.deferredTimerResult = "Failed: " + data.message;
+			});
+		};
+		
+		function deferredTimer(success) {
+			var deferred = $q.defer();
+
+			$timeout(function() {
+				if (success) {
+					deferred.resolve({ message: "This is great!" });
+				} else {
+					deferred.reject({ message: "Really bad" });
+				}
+			}, 1000);
+			return deferred.promise;
+		}
+ });
+
+//Goal is to allow users to monitor asynchronous progress by providing a "promise" as a return from a call
+//A number of Angular services return promises: $http, $interval, $timeout
+ 
+/*
+// this
+$http.get('/api/v1/movies/avengers')
+  .success(function(data, status, headers, config) {
+     $scope.movieContent = data;
+  });
+  
+// is the same as
+var promise = $http.get('/api/v1/movies/avengers');
+
+promise.then(
+  function(payload) {
+    $scope.movieContent = payload.data;
+  });
+*/
+ 
+</script> 
+
+</body>
+</html>
