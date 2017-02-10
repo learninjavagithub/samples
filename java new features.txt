@@ -1,0 +1,69 @@
+4:
+Assertions
+
+5:
+[CVSEFAAG]
+Covariant Returns
+Variable Args
+Static imports
+Enum
+For Each loop
+Autoboxing and Unboxing
+Annotations
+Generics
+
+
+6:
+Instrumentation
+
+7:
+[SBTUCS]
+String in Switch
+Binary Literals
+Try with resources - All classes which implements java.lang.AutoCloseable can be used
+Underscore in literals
+Catch multiple exceptions
+Suppressed exceptions
+
+8:
+Lambda Expressions
+Streams
+Functional Interfaces
+
+
+Declarative & Programmatic 
+http://simplespringtutorial.com/springDeclarativeTransactions.html
+
+
+Isolation Levels:
+http://www.byteslounge.com/tutorials/spring-transaction-propagation-tutorial
+http://www.byteslounge.com/tutorials/spring-transaction-isolation-tutorial
+http://hmkcode.com/spring-mvc-share-root-webapplicationcontext-beans-with-child-webapplicationcontext/
+
+
+@Autowired wires by type and @Resource wires by name
+
+2PL :
+
+1.Expanding phase (aka Growing phase): locks are acquired and no locks are released (the number of locks can only increase).
+2.Shrinking phase: locks are released and no locks are acquired.
+
+http://ndpsoftware.com/HibernateMappingCheatSheet.html
+
+http://javahonk.com/wp-content/uploads/2014/04/JVM_Structure.png
+http://lh6.ggpht.com/-ggs54wCzHLA/UQRATYKYJtI/AAAAAAAAAcM/_pX9ZFnrzTU/image_thumb6.png?imgmax=800
+https://blog.codecentric.de/en/2012/08/useful-jvm-flags-part-5-young-generation-garbage-collection/
+https://blog.codecentric.de/en/2011/03/java-memory-configuration-and-monitoring-3rd-act/
+
+***
+https://blog.codecentric.de/en/2010/01/the-java-memory-architecture-1-act/
+http://www.programcreek.com/2013/04/jvm-run-time-data-areas/
+
+http://www.journaldev.com/2954/hibernate-query-language-hql-example-tutorial
+http://www.journaldev.com/3481/hibernate-save-vs-saveorupdate-vs-persist-vs-merge-vs-update-explanation-with-examples
+http://www.concretepage.com/interview/hibernate-interview/hibernate-interview-questions-working-with-objects
+
+http://dhruba.name/2008/12/08/rest-service-example-using-cxf-22-jax-rs-10-jaxb-and-spring/
+
+Hibernate configuration confusion:
+http://stackoverflow.com/questions/5379791/how-do-you-translate-hibernate-class-mappings-to-a-spring-application-context
