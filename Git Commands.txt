@@ -1,3 +1,6 @@
+// Find existing config 
+git config -l
+
 // Create a local repo
 git init
 
@@ -31,3 +34,12 @@ git status
 
 // Remove a directory
 git rm -r "Removed dir"
+
+// Show remove repo info
+git remote -v
+
+// Force GC
+git gc --aggressive
+
+// Increase buffer
+git config --global http.postBuffer 12M
