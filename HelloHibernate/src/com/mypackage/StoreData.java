@@ -41,8 +41,23 @@ public class StoreData {
 		
 		t.commit();// transaction is commited
 		session.close();
-		factory.close();// If this statement is not present, then the program will be running for ever
 
+		// Merge - Used to attach a detached entity, here e3 to a persistent state
+		Session session1 = factory.openSession();
+		session1.beginTransaction();
+		e3.setLastName("Venky");
+		
+		session1.merge(e3); // can use session1.update(e3) also to make a detached entity to persistent state
+		session1.getTransaction().commit();
+		System.out.println("Merged Employee from DB with Id : " + e3.getLastName()); // Displays Venky
+		
+		session1.close();
+		factory.close();// If this statement is not present, then the program will be running for ever
+		
+		// Refresh - Used to do the opposite to update() that is, get the entity in sync with the outdated entity state 
+		// flush() - used to force the session data to synchronize with database. Commit does flush the session, but it also ends the unit of work.
+		// replicate() - Persist the state of the given detached instance, reusing the current identifier value
+		
 		System.out.println("successfully saved");
 
 	}
