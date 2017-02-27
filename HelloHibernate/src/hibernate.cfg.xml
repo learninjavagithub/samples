@@ -13,7 +13,28 @@
         <property name="connection.username"></property>
         <property name="connection.password"></property>
         <property name="connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <mapping resource="employee.hbm.xml"/>
+        
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        
+        <!-- Enable Second Level Cache Starts -->
+        <property name="cache.use_second_level_cache">true</property>
+        <!-- For Hibernate 4.x and above -->
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        
+        <!-- For Hibernate 3.3 and above 
+        <property name="cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
+        -->
+        <!-- For Hibernate 3.2 and above 
+        <property name="cache.region.factory_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
+        -->
+    	<property name="net.sf.ehcache.configurationResourceName">ehcache.xml</property>
+        <!-- Enable Second Level Cache Ends -->
+    	
+    	<!--  Enable Query Cache -->
+    	<property name="cache.use_query_cache">true</property>
+    	
+    	<mapping resource="employee.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>

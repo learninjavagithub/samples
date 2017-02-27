@@ -1,0 +1,19 @@
+To Start Derby in Network Server mode:
+setNetworkClientCP.bat
+startNetworkServer.bat
+
+To Start Client:
+>ij
+ij>CONNECT 'jdbc:derby://localhost:1527/firstdb;create=true';
+
+
+Derby Network Server:
+• Driver name org.apache.derby.jdbc.ClientDriver
+• Database connection URL 
+  jdbc:derby://localhost:1527/firstdb;create=true;user=me;password=me
+
+
+Derby Embedded Server: 
+• Driver name org.apache.derby.jdbc.EmbeddedDriver
+• Database connection URL 
+  jdbc:derby:firstdb;create=true;user=me;password=me

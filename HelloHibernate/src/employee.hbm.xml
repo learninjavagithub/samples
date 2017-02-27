@@ -5,6 +5,8 @@
 
 <hibernate-mapping>
 <class name="com.mypackage.Employee" table="App.Employee">
+
+<cache usage="read-only" />
 <id name="id">
 	<generator class="assigned"></generator>
 </id>
