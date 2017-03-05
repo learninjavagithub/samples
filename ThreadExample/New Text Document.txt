@@ -1,0 +1,17 @@
+Step 1:
+mvn exec:java -Dexec:mainClass=com.pkusuma.Thread1
+
+Step 2 :
+jps and get the pid of maven launcher process
+
+jmap -dump:file=thread1 <pid from step1>
+
+Step 3 :
+
+jmap thread1
+
+Step 4 :
+
+Open browser and navigate to
+
+http://localhost:7000/

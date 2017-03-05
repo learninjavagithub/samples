@@ -1,0 +1,5 @@
+npm install -g angcli
+npm install -g bower -> This is a dependency manager similar to npm. angcli uses bower to manage TPT dependencies
+ng install -g karma
+ng build
+ng serve
