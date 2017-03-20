@@ -46,3 +46,5 @@ git config --global http.postBuffer 12M
 
 // Configure MergeTool
 git config merge.tool "C:/Windows/System32/notepad.exe"
+
+git config --global mergetool.prompt false
