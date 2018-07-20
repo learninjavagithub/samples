@@ -131,11 +131,11 @@ public class CompletableFutureExample {
 			System.out.println("Just do some process");
 		});
 
-		//thenCombine - combines results of two CompletableFutures. Returns CompletableFuture
+		//thenCombine - combines results of two independent CompletableFutures. Returns CompletableFuture
 		CompletableFuture<String> combineFuture = sfuture.thenCombine(slfuture, (s1, s2) -> s1 + "|" + s2);
 		System.out.println(combineFuture.getNow(null));
 		
-		//thenCompose - combines results of two CompletableFutures. Returns CompletableFuture
+		//thenCompose - combines results of two dependent CompletableFutures. Returns CompletableFuture
 		CompletableFuture<String> composeFuture1 = new CompletableFutureExample().getUserName().thenCompose(new CompletableFutureExample()::getDept);
 		try {
 			System.out.println("Results of combine is: " + composeFuture1.get());
