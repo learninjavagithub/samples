@@ -1,10 +1,11 @@
+package com;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.function.Supplier;
 
 public class CompletableFutureExample {
 
-	public static void main(String[] args) {
+	public static void main(String[] str) {
 
 		new Thread(() -> {
 
