@@ -69,7 +69,10 @@ public class ReadFromFile {
 			}
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			for (int i=0; i < e.getSuppressed().length;i++) {
+				System.out.println(e.getSuppressed()[i].getStackTrace());
+			}
+			//e.printStackTrace();
 		}
 	}
 	
