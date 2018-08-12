@@ -1,0 +1,16 @@
+ 
+1. Create source file, say Hello.java
+2. Create docker config file, say Dockerfile (no extension is required)
+3. Start the docker - systemctl start docker
+4. Build the application - docker build -t java-app .
+5. Run the application - 
+  docker run java-app           - creates an image and runs the command but leaves the container without deleting
+  docker run --rm java-app      - creates an image and runs the command and deletes the new container created
+  
+  Check if the image is created using the command : docker ps -a
+  
+  docker rm <CONTAINER ID from above command>  - deletes the stopped container
+  docker kill <CONTAINER ID from above command> - kills a running container 
+  
+6. Check status - systemctl status docker
+   Stop docker  - systemctl stop docker

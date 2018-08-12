@@ -1,0 +1,27 @@
+Download rpm from chrome:
+
+yum localinstall <downloaded-file-name>
+
+
+wget https://go.skype.com/skypeforlinux-64.rpm
+
+yum localinstall skypeforlinux-64.rpm
+
+
+Set Java env variables:
+Add the below variables to /etc/profile
+
+export JAVA_HOME=/usr/java/jdk-10.0.1
+export PATH=%JAVA_HOME/bin:$PATH
+
+logout and login again or reboot or use source /etc/profile
+
+Create shortcut - See KDE:
+http://xmodulo.com/create-desktop-shortcut-launcher-linux.html
+
+
+Spark Installation:
+
+Spark is not compatible with JDK 9 or above.
+So install JDK 1.8 and add JAVA_HOME variable to spark/conf/spark-env.sh
+Note : Take a copy of spark-env.sh.template as spark-env.sh as this file is not present
