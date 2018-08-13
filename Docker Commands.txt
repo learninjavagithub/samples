@@ -14,3 +14,13 @@
   
 6. Check status - systemctl status docker
    Stop docker  - systemctl stop docker
+
+   
+Other commands:
+docker images 		- list all the images in the system
+docker images java 	- list all images by name
+docker images java:8	- list all images by name and tag
+docker system df 	- disk usage
+docker system df -v 	- disk usage, verbose 
+docker system info 	- Display system info
+docker system events 	- Realtime events from the server

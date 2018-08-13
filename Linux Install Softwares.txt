@@ -25,3 +25,9 @@ Spark Installation:
 Spark is not compatible with JDK 9 or above.
 So install JDK 1.8 and add JAVA_HOME variable to spark/conf/spark-env.sh
 Note : Take a copy of spark-env.sh.template as spark-env.sh as this file is not present
+
+Install mp4 codecs;
+yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+yum install libdvdcss gstreamer{,1}-plugins-ugly gstreamer-plugins-bad-nonfree gstreamer1-plugins-bad-freeworld libde265 x265
+
+yum install vlc smplayer
