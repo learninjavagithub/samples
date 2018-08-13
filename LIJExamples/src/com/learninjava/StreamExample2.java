@@ -119,21 +119,6 @@ public class StreamExample2 {
 	
 }
 
-/*class AngryBird {
-	
-	public int size;
-	
-	public String color;
-	
-	public List<Egg> eggs = new ArrayList<Egg>();
-	
-	AngryBird(int size, String color) {
-		this.size = size;
-		this.color = color;
-	}
-	
-}*/
-
 class Egg {
 	
 	public int size;

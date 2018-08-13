@@ -1,7 +1,7 @@
 package com.learninjava;
 
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author learninjava.com
@@ -35,31 +35,3 @@ public class EqualsAndHashCode {
 		System.out.println("Is RED angry bird present in the buckets ? : " + birdsSet.contains(birdToFind));
 	}
 }
-
-class AngryBird {
-
-	public int size;
-	
-	public String color;
-
-	public AngryBird(int size, String color) {
-		this.size = size;
-		this.color = color;
-	}
-
-	public int hashCode() {
-		return size;
-	}
-
-	public boolean equals(Object obj) {
-		
-		boolean flag = false;
-		AngryBird angryBird = (AngryBird) obj;
-		if (angryBird.size == size && 
-				angryBird.color == color) {
-			flag = true;
-		}
-		return flag;
-	}
-}
-
