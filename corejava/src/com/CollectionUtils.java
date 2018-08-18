@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class CollectionUtils {
 
@@ -38,6 +39,17 @@ public class CollectionUtils {
 	    ); // will return 20 as elt is updated by above statement
 		
 		System.out.println(hSet.add("one"));// will return false if the element is not added successfully
+		
+		// Stream to find if a string or character is present
+		boolean exists = Stream.of("one", "two", "three", "4", "5").anyMatch("6"::equals);
+		System.out.println("Exists ? : " + exists);
+		
+		List<String> listOfStrings = Arrays.asList("one", "two", "three");
+		
+		String someString = "There are two or three apples...";
+		
+		boolean isPresent = listOfStrings.stream().anyMatch(someString::contains);
+		System.out.println("Is Present ? : " + isPresent);
+		
 	}
-
 }
