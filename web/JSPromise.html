@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JS Promise</title>
+
+<script>
+
+function fooPromise(flag) {
+
+	return new Promise(function(resolve, reject) {
+		
+		if ( flag ) {
+			resolve("sucess");
+		} else {
+			reject("failure");
+		}
+	});	
+}
+
+function loadFunction() {
+	
+	if (window.Promise) {
+		alert('Promises are supported!!');
+	}
+	
+	/*
+	fooPromise()
+		.then(function(result) {
+			alert('Success Result is :' + result);
+		})
+		.catch(function(error) {
+			alert('Err Result is : ' + error);
+		});
+	*/
+	// Using arrow function =>
+	
+	fooPromise(true)
+		.then(result =>	alert('Success Result is :' + result))
+		.catch(error =>	alert('Err Result is : ' + error));
+
+}
+
+
+
+</script>
+
+</head>
+<body onload="loadFunction()">
+
+</body>
+</html>
