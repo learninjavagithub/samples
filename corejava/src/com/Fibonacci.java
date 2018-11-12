@@ -47,7 +47,7 @@ public class Fibonacci {
 		
 		Stream.iterate(new int[] {0, 1}, a -> new int[] {a[1], a[0] + a[1]})
 			  .limit(limit)
-			  .map(n -> n[0])
+			  .map(a -> a[0]) // selects first element from the 2 element array created in iterate
 			  .forEach(s -> System.out.print(s + ", "));
 	}
 }
