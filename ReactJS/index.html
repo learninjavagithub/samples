@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/react@15.6.2/dist/react.min.js">
+</script><script src="https://unpkg.com/react-dom@15.6.2/dist/react-dom.min.js">
+</script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+	
+	// Plain javascript function
+	const Title = ({param}) => {
+
+		return (
+			<div>
+				<div>
+					<h1>{param} Ganesh</h1>
+				</div>
+			</div>
+		);
+	}
+
+   // React Component
+   class Hello extends React.Component {
+    	render() {
+        	return (
+				<table>
+					<tr>
+						<td><Title param="Jai"/></td>
+						<td><h1>{this.props.param} Ganesh</h1></td>
+					</tr>
+				</table>
+			);
+    	}
+	}
+
+	ReactDOM.render(
+    	<Hello param="Jai"/>, 
+    	document.getElementById("root")
+	);
+
+// Refer this for state vs props : https://codeburst.io/react-state-vs-props-explained-51beebd73b21
+    </script>
+</body>
+</html>
