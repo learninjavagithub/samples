@@ -31,3 +31,13 @@ yum -y install http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-releas
 yum install libdvdcss gstreamer{,1}-plugins-ugly gstreamer-plugins-bad-nonfree gstreamer1-plugins-bad-freeworld libde265 x265
 
 yum install vlc smplayer
+
+Installing nodejs on centos;
+
+1. Add repo to yum:
+curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+2. Install nodejs:
+suro yum install -y nodejs
+3. Verify:
+node --version
+npm --version
