@@ -14,6 +14,12 @@
   
 6. Check status - systemctl status docker
    Stop docker  - systemctl stop docker
+   
+   
+   Removing a container(for re-building):
+   docker ps -a   - get all the containers by name
+   docker stop -a name_of_the_docker_container - Stop the container first using this command
+   docker rm name_of_the_docker_container - remove the container
 
    
 Other commands:
@@ -24,3 +30,17 @@ docker system df 	- disk usage
 docker system df -v 	- disk usage, verbose 
 docker system info 	- Display system info
 docker system events 	- Realtime events from the server
+
+
+
+For nginx,
+
+Build: docker build -t cp-nginx .
+
+Run: docker run --name community-portal -d -p 8080:80 cp-nginx
+
+
+Running on another port:
+1. docker stop community-portal
+2. docker rm community-portal
+3. docker run --name community-portal -d -p 80:80 cp-nginx
