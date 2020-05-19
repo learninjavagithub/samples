@@ -1,6 +1,6 @@
 package com;
 
-public class MissingNuber {
+public class MissingNumber {
 
 	public static void main(String[] args) {
 		

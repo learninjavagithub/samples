@@ -12,6 +12,7 @@ public class StackExample {
         stackOfCards.push("King");
         
         System.out.println("Stack => " + stackOfCards);
+        System.out.println("Size after Pop : " + stackOfCards.size());        
         
         System.out.println("Top element is :" + stackOfCards.get(0));
         System.out.println("First element is : " + stackOfCards.firstElement());

@@ -17,8 +17,8 @@ public class CollectionUtils {
 		
 		// OR
 		
-		// NOTE :  HashMap will always return the value associated with the key, null if no value exists
-		// HashSet will always return the result of the add operation, true if added successfully, false if elt is
+		// NOTE :  HashMap's put() will always return the value associated with the key, null if no value exists
+		// HashSet will always return the result of the add() operation, true if added successfully, false if elt is
 		// already present
 		HashSet<String> hSet = new HashSet<>(list);
 		

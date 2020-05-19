@@ -27,16 +27,19 @@ public class ReadFromFile {
 		File outputFile2 = new File(new StringBuilder("C:").append(File.separator)
 				.append("TEMP").append(File.separator).append("sample2.txt").toString());
 		
-		String outputFile3 = new StringBuilder("C:").append(File.separator)
+		String outputFilePathStr = new StringBuilder("C:").append(File.separator)
 				.append("TEMP").append(File.separator).append("sample3.txt").toString();
 		
 		usingFileInputStream(inputFile, outputFile1);
 		System.out.println("$$$$$$$$$$");
 		usingBufferedReader(inputFile, outputFile2);
 		System.out.println("$$$$$$$$$$");
-		usingJDK7File(inputFilePathStr, outputFile3);
+		usingJDK7File(inputFilePathStr, outputFilePathStr);
 	}
 	
+	/**
+	 * Uses Streams and reads into buffer
+	 */
 	public static void usingFileInputStream(File inputFile, File outputFile1) {
 		
 		
@@ -55,6 +58,9 @@ public class ReadFromFile {
 		}
 	}
 
+	/**
+	 * Uses Readers and Writers and reads line as string
+	 */
 	public static void usingBufferedReader(File inputFile, File outputFile2) {
 		
 		 try (BufferedReader br = new BufferedReader(new FileReader(inputFile));
@@ -76,13 +82,16 @@ public class ReadFromFile {
 		}
 	}
 	
-	public static void usingJDK7File(String inputFilePathStr, String outputFile3) {
+	/**
+	 * Uses Paths and Files and reads line as string 
+	 */
+	public static void usingJDK7File(String inputFilePathStr, String outputFilePathStr) {
 	    
 		Path inputFilePath = Paths.get(inputFilePathStr);
-		Path outFilePath = Paths.get(outputFile3);
+		Path outputFilePath = Paths.get(outputFilePathStr);
 	    
 	    try (BufferedReader reader = Files.newBufferedReader(inputFilePath);
-	    	BufferedWriter writer = Files.newBufferedWriter(outFilePath)) {
+	    	BufferedWriter writer = Files.newBufferedWriter(outputFilePath)) {
 	    	
 	        String line = null;
 	        while ((line = reader.readLine()) != null) {
