@@ -17,16 +17,14 @@ public class Serialization {
 		
 		Employee emp2 = (Employee) Serialization.deserializeObject();
 		
-		System.out.println("Emp Id : " + emp2.getEmpId() + " Emp Name : " + emp2.getEmpName());
-		System.out.println("Name : " + emp2.name + " Class Name : " + emp2.className + 
-				" Salary : " + emp2.salary);
-
+		System.out.println("Emp Id : " + emp1.getEmpId() + " Class Name : " + emp1.className + " Emp Name : " + emp1.getEmpName() + " Salary : " + emp1.salary);
+		System.out.println("Emp Id : " + emp2.getEmpId() + " Class Name : " + emp2.className + " Emp Name : " + emp2.getEmpName() + " Salary : " + emp2.salary);
 	}
 
 	public static void serializeObject(Object obj) {
 		
 		try ( ObjectOutputStream oos = new ObjectOutputStream(
-				new FileOutputStream("/tmp/emp.ser")) ) {
+				new FileOutputStream("C:/Praveen/emp.ser")) ) {
 			
 			oos.writeObject(obj);
 			
@@ -41,7 +39,7 @@ public class Serialization {
 		
 		Object result = null;
 		try (ObjectInputStream ois = new ObjectInputStream(
-				new FileInputStream("/tmp/emp.ser"))) {
+				new FileInputStream("C:/Praveen/emp.ser"))) {
 			
 			result = ois.readObject();
 			
@@ -67,6 +65,7 @@ class Employee extends Person {
 	private static final long serialVersionUID = 7196263935932272732L;
 
 	String name = "Employee";
+	//Remove transient to allow salary to get serialized as well
 	transient int salary = 50000;
 				
 	private int empId;

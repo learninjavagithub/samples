@@ -17,7 +17,7 @@ public class MergeArrays {
 		//	or
 		Arrays.stream(c).forEach(System.out::println);
 		
-		Arrays.stream(c).reduce((x, y) -> x+ "-"+y).ifPresent(System.out::println);
+		Arrays.stream(c).reduce((result, x) -> result + "-" + x).ifPresent(System.out::println);
 		
 		int[] numbers = {2, 4, 5, 7, 1, 8};
 		

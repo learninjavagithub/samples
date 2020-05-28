@@ -10,6 +10,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+/**
+ * Find the nearest Steak House given are the distances for location coordinates
+ *
+ */
 public class NearestLocations {
 
 	public static void main(String[] args) {
@@ -24,10 +28,11 @@ public class NearestLocations {
 		List<Integer> list6 = Arrays.asList(7, 9);
 		
 		List<List<Integer>> allLocations = Arrays.asList(list1, list2, list3, list4, list5, list6);
-				
-		System.out.println(solution.nearestXsteakHouses(6, allLocations, 3));
 		
-		// Expected is : [[2, 4], [3, 6], [5, 3]]
+		// Find nearest 3 Steak Houses
+		System.out.println("Final result is : " + solution.nearestXsteakHouses(6, allLocations, 3));
+		
+		// Expected is : [[2, 4], [5, 3], [3, 6]]
 	}
 
 	
@@ -54,7 +59,9 @@ class Solution1
          distancesMap.put(location, distances[i]);
          i++;
      }
+     System.out.println("Distances Map is : " + distancesMap);
      
+     //Order the map by ascending order of distance and collect in a LinkedHashMap to preserve order
      Map<List<Integer>, Double> mapOfNearestSteakHouses = distancesMap
          .entrySet()
          .stream()
@@ -65,7 +72,7 @@ class Solution1
          .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (v1, v2) -> v1, LinkedHashMap::new));
      // (v1, v2) -> v1 -- we do not want any merging here
 
-     System.out.println("After Ordering:" + mapOfNearestSteakHouses);
+     System.out.println("After Ordering : " + mapOfNearestSteakHouses);
      
      return mapOfNearestSteakHouses
          .keySet()

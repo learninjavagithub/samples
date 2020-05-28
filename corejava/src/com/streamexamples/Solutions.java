@@ -55,10 +55,17 @@ public class Solutions {
 		//7. What’s the highest value of all the transactions?
 		findHighestValue(transactions);
 		
-		int i = 5;
-		while (i --> 0) {
-			System.out.println("i = " + i);
-		}
+		System.out.println("*************************************************");
+		//8. Print all traders in Milan order by their name in desc order
+		findTradersByNamesSortedReverse(transactions);
+
+		/* How to remember. Think of each of the functions we used as a clauses in a DB query
+		*  filter = WHERE
+		*  map + collect = SELECT
+		*  forEach = FOR LOOP
+		*  sorted = ORDER BY
+		*  distinct = DISTINCT
+		*/
 	}
 	
 	private static void findAllTransactions(List<Transaction> transactions) {
@@ -97,8 +104,10 @@ public class Solutions {
 					.map(t -> t.getTrader().getName())
 					.distinct()
 					.sorted()
-					.reduce("Result is : ", (a, b) -> (a + b + " "));
-		
+					.reduce("Result is : ", (res, elt) -> (res + elt + " "));
+		// reduce syntax - first arg = initial value, second arg = again 2 params -> function to do
+		// first param = temp result like temp total
+		// second param = element value
 		System.out.println(result);
 	}
 	
@@ -134,5 +143,13 @@ public class Solutions {
 					.max(Comparator.comparing(Transaction::getValue));
 		
 		System.out.println(result);
+	}
+	
+	private static void findTradersByNamesSortedReverse(List<Transaction> transactions) {
+		
+		transactions.stream()
+					.map(t -> t.getTrader().getName())
+					.sorted(Comparator.reverseOrder())
+					.forEach(System.out::println);
 	}
 }

@@ -11,7 +11,7 @@ public class Java8 implements Offer {
 
 	@Override
 	public void meth1() {
-		System.out.println("Implemenation");
+		System.out.println("Implementation");
 	}
 	
 	public static void main(String... args) {
@@ -22,9 +22,9 @@ public class Java8 implements Offer {
 		String s1 = "abc";
 		String s2 = new String("abc").intern();
 		
-		System.out.println("+++++++++++++"+(s1 == s2));
+		System.out.println("Are these instances same ? "+(s1 == s2));
 		
-		Integer a  = 11_22;
+		Integer a  = 11_22; // Can have underscores in literals
 		System.out.println(a);
 		
 		new Java8().java8Function();
@@ -62,9 +62,9 @@ public class Java8 implements Offer {
 	
 	private void compose() {
 		
-		Function<Integer, String> converter = (i)-> Integer.toString(i);
+		Function<Integer, String> converter = (i) -> Integer.toString(i);
 	    
-	    Function<String, Integer> reverse = (s)-> Integer.parseInt(s);
+	    Function<String, Integer> reverse = (s) -> Integer.parseInt(s);
 	   
 	    System.out.println(converter.apply(3).length());
 	    // first send arg to function in compose(reverse) then to caller(converter)
@@ -76,7 +76,7 @@ public class Java8 implements Offer {
 	
 	private static void optional() {
 		
-		Optional<String> o =  Optional.empty(); 
+		Optional<String> o = Optional.empty();
 		System.out.println(o.toString());
 
 		List<Account> list = Arrays.asList(new Account(1, "One"),

@@ -31,9 +31,11 @@ public class ReadFromFile {
 				.append("TEMP").append(File.separator).append("sample3.txt").toString();
 		
 		usingFileInputStream(inputFile, outputFile1);
-		System.out.println("$$$$$$$$$$");
+		
+		System.out.println("$$$$$$$$$$");		
 		usingBufferedReader(inputFile, outputFile2);
-		System.out.println("$$$$$$$$$$");
+		
+		System.out.println("$$$$$$$$$$");		
 		usingJDK7File(inputFilePathStr, outputFilePathStr);
 	}
 	
