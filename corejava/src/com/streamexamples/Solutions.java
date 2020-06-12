@@ -60,11 +60,12 @@ public class Solutions {
 		findTradersByNamesSortedReverse(transactions);
 
 		/* How to remember. Think of each of the functions we used as a clauses in a DB query
+		*  collect = SELECT
+		*  distinct = DISTINCT
+		*  map = Any analytic function say SUM(column)
 		*  filter = WHERE
-		*  map + collect = SELECT
 		*  forEach = FOR LOOP
 		*  sorted = ORDER BY
-		*  distinct = DISTINCT
 		*/
 	}
 	

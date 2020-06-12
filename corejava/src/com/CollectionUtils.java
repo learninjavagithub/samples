@@ -1,6 +1,8 @@
 package com;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -50,6 +52,13 @@ public class CollectionUtils {
 		
 		boolean isPresent = listOfStrings.stream().anyMatch(someString::contains);
 		System.out.println("Is Present ? : " + isPresent);
+		
+		List<Integer> numbersList = new ArrayList<>();
+		numbersList.add(20);
+		numbersList.add(10);
+		numbersList.add(30);
+		
+		System.out.println(Collections.max(numbersList));
 		
 	}
 }

@@ -15,7 +15,7 @@ public class Singleton {
 		// Trying newInstance - throws IllegalAccessException due to private constructor
 		System.out.println(MySingleton.class.newInstance());
 		
-		//Disadvantages - uses volatile and will not work before java 1.4
+		//Disadvantages - uses volatile and will not work for versions earlier than java 1.4
 		//Better alternative is to use Enum Singleton instead
 	}
 }
