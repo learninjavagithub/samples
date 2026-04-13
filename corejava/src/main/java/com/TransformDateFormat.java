@@ -18,6 +18,7 @@ public class TransformDateFormat {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		System.out.println(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format("2020-07-08T14:34:42-04:00"));
 
 	}
 

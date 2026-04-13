@@ -2,3 +2,90 @@
 .DS_Store
 **/.DS_Store
 **/.settings/*
+
+target/**
+
+# -----------------------------
+# OS / Editor / Environment
+# -----------------------------
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# VS Code / Windsurf
+.vscode/
+.history/
+*.code-workspace
+
+# IntelliJ / Eclipse (in case you open the project there)
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+bin/
+
+# -----------------------------
+# Java / Build Artifacts
+# -----------------------------
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+# -----------------------------
+# Gradle (if added later)
+# -----------------------------
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# -----------------------------
+# Maven (if added later)
+# -----------------------------
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# -----------------------------
+# Maven-style folders (even if not using Maven)
+# -----------------------------
+target/
+target/classes/
+target/test-classes/
+
+# -----------------------------
+# SDKMAN
+# -----------------------------
+.sdkman/
+
+# -----------------------------
+# Temporary / Misc
+# -----------------------------
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+*.cache/
